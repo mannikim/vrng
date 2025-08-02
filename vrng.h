@@ -89,7 +89,7 @@ xorshiftu64(uint64_t seed)
 VRNGAPI size_t
 weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 {
-	// remember to also apply changes to `weight32` funtion
+	// remember to also apply changes to `weightu32` funtion
 
 	VRNG_ASSERT(weights && "Null pointer passed to weight64");
 
@@ -128,7 +128,7 @@ weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 VRNGAPI size_t
 weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
 {
-	// remember to also apply changes to `weight64` funtion
+	// remember to also apply changes to `weightu64` funtion
 	
 	VRNG_ASSERT(weights && "Null pointer passed to weight32");
 
