@@ -41,6 +41,8 @@
 
 #endif // VRNG_DEBUG
 
+// VRNG DEF
+
 // seed: uint32_t
 #define tof32(seed) ((float)seed / UINT32_MAX)
 #define tof32max(seed) ((float)seed / UINT32_MAX * FLT_MAX)
