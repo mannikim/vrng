@@ -4,13 +4,6 @@
 
 // vrng.h - simple single-header seeded random number generator library
 
-/* v DEBUG - REMOVE LATER v */
-
-#define VRNG_IMPL
-#define VRNG_DEBUG
-
-/* ^ DEBUG - REMOVE LATER ^ */
-
 #include <float.h>
 #include <stdint.h>
 #include <stdlib.h>
