@@ -1,8 +1,9 @@
-// SPDX identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 // copyright 2025 mannikim mannikim[at]proton[dot]me
 // this file is part of vrng.h
 
 // vrng.h - simple single-header seeded random number generator library
+// see LICENSE for copyright and license information
 
 #include <float.h>
 #include <stdint.h>
@@ -71,6 +72,8 @@ randu64(uint64_t seed, uint64_t min, uint64_t max);
 VRNGAPI uint32_t
 xorshiftu32(uint32_t seed)
 {
+	VRNG_ASSERT(seed && "Seed should never be 0 for xorshift.");
+
 	seed ^= seed << 13;
 	seed ^= seed >> 17;
 	seed ^= seed << 5;
@@ -80,6 +83,8 @@ xorshiftu32(uint32_t seed)
 VRNGAPI uint64_t
 xorshiftu64(uint64_t seed)
 {
+	VRNG_ASSERT(seed && "Seed should never be 0 for xorshift.");
+
 	seed ^= seed << 13;
 	seed ^= seed >> 17;
 	seed ^= seed << 5;
