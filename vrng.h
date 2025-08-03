@@ -1,7 +1,7 @@
-/* SPDX-License-Identifier: GPL-3.0-or-later
-   copyright 2025 mannikim <mannikim[at]proton[dot]me>
-   this file is part of vrng.h
-   see the bottom of this file for the license text */
+// SPDX-License-Identifier: GPL-3.0-or-later
+// copyright 2025 mannikim <mannikim[at]proton[dot]me>
+// this file is part of vrng.h
+// see the bottom of this file for the license text
 
 // vrng.h - simple single-header seeded random number generator library
 
