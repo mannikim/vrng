@@ -1,6 +1,10 @@
 #!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
+# copyright 2025 mannikim <mannikim[at]proton[dot]me>
+# this file is part of vrng.h
+# see the bottom of the `vrng.h` file for the license text
+
 # adds a prefix to all vrng functions and macros
-# this can't handle changing function calls. thankfully, we have no such cases
 
 prefix="vrng_"
 header="// VRNG DEF"
