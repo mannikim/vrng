@@ -12,7 +12,7 @@ int
 main(void)
 {
 	printf("0: %u, 1: %u\n",
-	       randu32(DEFAULT_SEED, 0, 100),
-	       randu32(xorshiftu32((uint32_t)DEFAULT_SEED), 0, 100));
+	       vrng_randu32(DEFAULT_SEED, 0, 100),
+	       vrng_randu32(vrng_xorshu32((uint32_t)DEFAULT_SEED), 0, 100));
 	return 0;
 }

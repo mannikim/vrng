@@ -12,7 +12,7 @@ int
 main(void)
 {
 	printf("0: %lu, 1: %lu\n",
-	       randu64(DEFAULT_SEED, 0, 100),
-	       randu64(xorshiftu64(DEFAULT_SEED), 0, 100));
+	       vrng_randu64(DEFAULT_SEED, 0, 100),
+	       vrng_randu64(vrng_xorshu64(DEFAULT_SEED), 0, 100));
 	return 0;
 }

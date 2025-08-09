@@ -4,29 +4,10 @@
 # this file is part of vrng.h
 # see the bottom of the `vrng.h` file for the license text
 
-# adds a prefix to all vrng functions and macros
+# changes a prefix to all vrng functions and macros
 
-prefix="vrng_"
+old_prefix="vrng_"
+new_prefix=""
 header="// VRNG DEF"
 
-awk -v prefix="$prefix" -v header="$header" '
-BEGIN { rep = 0 }; 
-{
-	if (rep) { 
-		# functions
-		if ($0 ~ /^\w+\(/) {
-			sub(//,prefix)
-		}
-		# macros
-		if ($0 ~ /#define \w+\(/) { 
-			match($0, /#define (\w+)\(/, m)
-			name = m[1]
-			sub(name, prefix name)
-		}
-	} 
-	if ($0 ~ header) {
-		rep = 1
-	}
-	print 
-} 
-' vrng.h
+sed -e "s/^$old_prefix\(\w\+(\)/$new_prefix\1; s/#define $old_prefix\(\w\+(\)/#define $new_prefix\1/"

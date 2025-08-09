@@ -12,6 +12,6 @@ int
 main(void)
 {
 	uint64_t seed = 1;
-	printf("Seed: %lu Result: %lu\n", seed, xorshiftu64(seed));
+	printf("Seed: %lu Result: %lu\n", seed, vrng_xorshu64(seed));
 	return 0;
 }

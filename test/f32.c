@@ -11,8 +11,8 @@
 int
 main(void)
 {
-	float f0 = tof32(DEFAULT_SEED);
-	float f1 = tof32(xorshiftu64(DEFAULT_SEED));
+	float f0 = vrng_tof32(DEFAULT_SEED);
+	float f1 = vrng_tof32(vrng_xorshu64(DEFAULT_SEED));
 
 	printf("0: %f, 1: %f\n", f0, f1);
 

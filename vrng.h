@@ -38,39 +38,36 @@
 // VRNG DEF
 
 // seed: uint32_t
-#define tof32(seed) ((uint32_t)seed / (float)UINT32_MAX)
-#define tof32max(seed) ((uint32_t)seed / (float)UINT32_MAX * FLT_MAX)
+#define vrng_tof32(seed) ((uint32_t)seed / (float)UINT32_MAX)
+#define vrng_tof32max(seed) ((uint32_t)seed / (float)UINT32_MAX * FLT_MAX)
 
 // seed: uint64_t
-#define tof64(seed) ((uint64_t)seed / (double)UINT64_MAX)
-#define tof64max(seed) ((uint64_t)seed / (double)UINT64_MAX * DBL_MAX)
+#define vrng_tof64(seed) ((uint64_t)seed / (double)UINT64_MAX)
+#define vrng_tof64max(seed) ((uint64_t)seed / (double)UINT64_MAX * DBL_MAX)
 
 VRNGAPI uint32_t
-xorshiftu32(uint32_t seed);
+vrng_xorshu32(uint32_t seed);
 
 VRNGAPI uint64_t
-xorshiftu64(uint64_t seed);
-
-VRNGAPI uint64_t
-xorshiftu64(uint64_t seed);
+vrng_xorshu64(uint64_t seed);
 
 VRNGAPI size_t
-weightu64(uint64_t seed, uint64_t *weights, size_t weight_count);
+vrng_weightu64(uint64_t seed, uint64_t *weights, size_t weight_count);
 
 VRNGAPI size_t
-weightu32(uint32_t seed, uint32_t *weights, size_t weight_count);
+vrng_weightu32(uint32_t seed, uint32_t *weights, size_t weight_count);
 
 VRNGAPI uint32_t
-randu32(uint64_t seed, uint32_t min, uint32_t max);
+vrng_randu32(uint64_t seed, uint32_t min, uint32_t max);
 
 VRNGAPI uint64_t
-randu64(uint64_t seed, uint64_t min, uint64_t max);
+vrng_randu64(uint64_t seed, uint64_t min, uint64_t max);
 
 #ifdef VRNG_IMPL
 
 // https://en.wikipedia.org/wiki/Xorshift
 VRNGAPI uint32_t
-xorshiftu32(uint32_t seed)
+vrng_xorshu32(uint32_t seed)
 {
 	VRNG_ASSERT(seed && "Seed should never be 0 for xorshift.");
 
@@ -81,7 +78,7 @@ xorshiftu32(uint32_t seed)
 }
 
 VRNGAPI uint64_t
-xorshiftu64(uint64_t seed)
+vrng_xorshu64(uint64_t seed)
 {
 	VRNG_ASSERT(seed && "Seed should never be 0 for xorshift.");
 
@@ -92,7 +89,7 @@ xorshiftu64(uint64_t seed)
 }
 
 VRNGAPI size_t
-weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
+vrng_weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 {
 	// remember to also apply changes to `weightu32` funtion
 
@@ -131,7 +128,7 @@ weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 }
 
 VRNGAPI size_t
-weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
+vrng_weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
 {
 	// remember to also apply changes to `weightu64` funtion
 	
@@ -170,13 +167,13 @@ weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
 }
 
 VRNGAPI uint32_t
-randu32(uint64_t seed, uint32_t min, uint32_t max)
+vrng_randu32(uint64_t seed, uint32_t min, uint32_t max)
 {
 	return seed % (max - min) + min;
 }
 
 VRNGAPI uint64_t
-randu64(uint64_t seed, uint64_t min, uint64_t max)
+vrng_randu64(uint64_t seed, uint64_t min, uint64_t max)
 {
 	return seed % (max - min) + min;
 }
