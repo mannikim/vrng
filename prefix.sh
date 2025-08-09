@@ -8,6 +8,5 @@
 
 old_prefix="vrng_"
 new_prefix=""
-header="// VRNG DEF"
 
 sed -e "s/^$old_prefix\(\w\+(\)/$new_prefix\1; s/#define $old_prefix\(\w\+(\)/#define $new_prefix\1/"
