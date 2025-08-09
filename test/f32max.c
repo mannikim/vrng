@@ -11,21 +11,15 @@
 int
 main(void)
 {
-	float f0 = tof64(DEFAULT_SEED);
-	float f1 = tof64(xorshiftu64(DEFAULT_SEED));
+	float f0 = tof32max(DEFAULT_SEED);
+	float f1 = tof32max(xorshiftu64(DEFAULT_SEED));
 
 	printf("0: %f, 1: %f\n", f0, f1);
 
-	if (!(f0 >= DBL_MIN && f0 <= DBL_MAX && f1 >= DBL_MIN &&
-	      f1 <= DBL_MAX))
+	if (!(f0 >= FLT_MIN && f0 <= FLT_MAX && f1 >= FLT_MIN &&
+	      f1 <= FLT_MAX))
 	{
 		fprintf(stderr, "invalid floating point number\n");
-		return 1;
-	}
-
-	if (f0 > 1 || f0 < 0 || f1 > 1 || f0 < 0)
-	{
-		fprintf(stderr, "result is not a number in the range [0,1]\n");
 		return 1;
 	}
 
