@@ -37,14 +37,6 @@
 
 // VRNG DEF
 
-// seed: uint32_t
-#define vrng_tof32(seed) ((uint32_t)seed / (float)UINT32_MAX)
-#define vrng_tof32max(seed) ((uint32_t)seed / (float)UINT32_MAX * FLT_MAX)
-
-// seed: uint64_t
-#define vrng_tof64(seed) ((uint64_t)seed / (double)UINT64_MAX)
-#define vrng_tof64max(seed) ((uint64_t)seed / (double)UINT64_MAX * DBL_MAX)
-
 VRNGAPI uint32_t
 vrng_xorshu32(uint32_t seed);
 
