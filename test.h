@@ -6,3 +6,5 @@
 // provides common definitions for tests
 
 #define DEFAULT_SEED 0x314159265358979
+
+#define WEIGHT_ERROR_MARGIN 0.0001

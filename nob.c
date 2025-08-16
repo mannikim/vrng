@@ -25,7 +25,12 @@
 #define PATH_MAX 12
 #include "nob.h"
 
-static const char *test_names[] = {"init", "u32", "u64"};
+static const char *test_names[] = {
+	"init", 
+	"u32", 
+	"u64", 
+	"weightu32", 
+	"weightu64"};
 
 static bool
 build_and_run_test(Nob_Cmd *cmd, const char *test_name)

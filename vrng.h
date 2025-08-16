@@ -84,8 +84,8 @@ VRNGAPI size_t
 vrng_weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 {
 	// remember to also apply changes to `weightu32` funtion
-
-	VRNG_ASSERT(weights && "Null pointer passed to weight64");
+	
+	VRNG_ASSERT(weights && "Null pointer passed to weightu64");
 
 	uint64_t total_weight = 0;
 	for (size_t i = 0; i < weight_count; i++)
@@ -97,20 +97,12 @@ vrng_weightu64(uint64_t seed, uint64_t *weights, size_t weight_count)
 
 	// find the closest weight in `weights`, but smaller then `weight`
 	size_t last = 0;
-	uint64_t closest_weight = 0;
 	uint64_t offset = 0;
 	for (size_t i = 0; i < weight_count; i++)
 	{
-		if (offset + weights[i] > weight)
-		{
-			offset += weights[i];
-			continue;
-		}
-
-		if (offset + closest_weight < weight)
-		{
-			closest_weight = weight;
+		if (offset + weights[i] > weight) {
 			last = i;
+			break;
 		}
 
 		offset += weights[i];
@@ -124,7 +116,7 @@ vrng_weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
 {
 	// remember to also apply changes to `weightu64` funtion
 	
-	VRNG_ASSERT(weights && "Null pointer passed to weight32");
+	VRNG_ASSERT(weights && "Null pointer passed to weightu32");
 
 	uint32_t total_weight = 0;
 	for (size_t i = 0; i < weight_count; i++)
@@ -136,20 +128,12 @@ vrng_weightu32(uint32_t seed, uint32_t *weights, size_t weight_count)
 
 	// find the closest weight in `weights`, but smaller then `weight`
 	size_t last = 0;
-	uint32_t closest_weight = 0;
 	uint32_t offset = 0;
 	for (size_t i = 0; i < weight_count; i++)
 	{
-		if (offset + weights[i] > weight)
-		{
-			offset += weights[i];
-			continue;
-		}
-
-		if (offset + closest_weight < weight)
-		{
-			closest_weight = weight;
+		if (offset + weights[i] > weight) {
 			last = i;
+			break;
 		}
 
 		offset += weights[i];
