@@ -5,7 +5,6 @@
 
 // vrng.h - simple single-header seeded random number generator library
 
-#include <float.h>
 #include <stdint.h>
 #include <stdlib.h>
 
